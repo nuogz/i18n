@@ -7,7 +7,7 @@ import I18N from 'i18next';
 
 /**
  * @param {string} dirLocale
- * @param {Array<string>} segmentsDirLocale
+ * @param {Array<string>} [segmentsDirLocale]
  * @returns {I18N}
  */
 const initI18N = async (dirLocale, segmentsDirLocale) => {
