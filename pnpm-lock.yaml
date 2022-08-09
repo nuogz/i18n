@@ -2,10 +2,10 @@ lockfileVersion: 5.4
 
 specifiers:
   eslint: ^8.21.0
-  i18next: ^21.8.16
+  i18next: ^21.9.0
 
 dependencies:
-  i18next: 21.8.16
+  i18next: 21.9.0
 
 devDependencies:
   eslint: 8.21.0
@@ -443,8 +443,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /i18next/21.8.16:
-    resolution: {integrity: sha512-acJLCk38YMfEPjBR/1vS13SFY7rBQLs9E5m1tSRnWc9UW3f+SZszgH+NP1fZRA1+O+CdG2eLGGmuUMJW52EwzQ==}
+  /i18next/21.9.0:
+    resolution: {integrity: sha512-B+6/yd7rCpJidyPuBaEApUECx7G8Ai6+tqYhrChsY4MmQqJhG7qJ4eT6Lm1OnRhieVelEtfxh4aAQktdNVZtDA==}
     dependencies:
       '@babel/runtime': 7.18.9
     dev: false

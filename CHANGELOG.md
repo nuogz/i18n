@@ -1,7 +1,9 @@
 # CHANGELOG
 
-## unpublish latest
+## v1.0.2 - 2022.08.09 08
 * improve `README.md` and `CHANGELOG.md`
+* bump up `i18next` to `21.9.0`
+* use unified `.eslintrc.cjs` from `@nuogz/pangu`
 
 
 ## v1.0.1 - 2022.08.08 18
