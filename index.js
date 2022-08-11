@@ -5,6 +5,9 @@ import I18N from 'i18next';
 
 
 
+const copyJSON = object => JSON.parse(JSON.stringify(object));
+
+
 /**
  * @param {string} dirLocale
  * @param {Array<string>} [segmentsDirLocale]
@@ -36,6 +39,10 @@ const initI18N = async (dirLocale, segmentsDirLocale) => {
 
 	return I18N;
 };
+
+
+export const T = (key, options = {}, lng) => I18N.t(key, Object.assign(copyJSON(options), { lng }));
+export const TT = locale => (key, options) => T(key, options, locale);
 
 
 
