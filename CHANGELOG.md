@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.2.0 - 2022.08.11 17
+* use independent `I18N` instance instead shared instance
+
+
 ## v1.1.0 - 2022.08.11 11
 * export wrapped function `T` and `TT`
 

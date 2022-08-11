@@ -11,7 +11,6 @@ const copyJSON = object => JSON.parse(JSON.stringify(object));
 /**
  * @param {string} dirLocale
  * @param {Array<string>} [segmentsDirLocale]
- * @returns {I18N}
  */
 const initI18N = async (dirLocale, segmentsDirLocale) => {
 	const useFormatHades = (process.env.OUTPUT_FORMAT ?? '').split(';').filter(s => s).map(s => s.trim().toLowerCase()).includes('hades');
@@ -21,7 +20,9 @@ const initI18N = async (dirLocale, segmentsDirLocale) => {
 	if(!segmentsDirLocale) { segmentsDirLocale = useFormatHades ? ['locale', 'hades'] : ['locale']; }
 
 
-	await I18N.init({
+	const i18n = I18N.createInstance();
+
+	await i18n.init({
 		lng: language,
 		fallbackLng: 'en',
 		resources: {
@@ -30,20 +31,17 @@ const initI18N = async (dirLocale, segmentsDirLocale) => {
 		},
 	});
 
-
 	if(useFormatHades) {
-		I18N.services.formatter.add('hadesValue', value => `~{${value}}`);
-		I18N.services.formatter.add('hadesTerm', value => `~[${value}]`);
+		i18n.services.formatter.add('hadesValue', value => `~{${value}}`);
+		i18n.services.formatter.add('hadesTerm', value => `~[${value}]`);
 	}
 
 
-	return I18N;
+	const T = (key, options = {}, lng) => i18n.t(key, Object.assign(copyJSON(options), { lng }));
+	const TT = locale => (key, options) => T(key, options, locale);
+
+	return { T, TT };
 };
-
-
-export const T = (key, options = {}, lng) => I18N.t(key, Object.assign(copyJSON(options), { lng }));
-export const TT = locale => (key, options) => T(key, options, locale);
-
 
 
 export default initI18N;
