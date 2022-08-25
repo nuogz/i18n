@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## v1.2.1 - 2022.08.25 19
+* use `copyJSON` from `@nuogz/utility`
+* bump up dependencies
+* improve `package.json`
+* update `.eslintrc.cjs`
+
+
 ## v1.2.0 - 2022.08.11 17
 * use independent `I18N` instance instead shared instance
 

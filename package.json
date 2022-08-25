@@ -1,25 +1,27 @@
 {
 	"name": "@nuogz/i18n",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "base I18N library for Nuogz libraries",
 	"author": "Nuogz",
 	"license": "LGPL-3.0-or-later",
-	"main": "./index.js",
-	"type": "module",
 	"repository": {
 		"type": "git",
 		"url": "github:nuogz/i18n"
 	},
-	"files": [
-		"index.js"
-	],
+	"type": "module",
+	"typesSource": [],
 	"engines": {
 		"node": ">=14.18.1"
 	},
-	"devDependencies": {
-		"eslint": "^8.21.0"
-	},
+	"main": "index.js",
+	"files": [
+		"index.js"
+	],
 	"dependencies": {
-		"i18next": "^21.9.0"
+		"@nuogz/utility": "^1.3.0",
+		"i18next": "^21.9.1"
+	},
+	"devDependencies": {
+		"eslint": "^8.22.0"
 	}
 }

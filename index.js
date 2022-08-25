@@ -3,9 +3,8 @@ import { resolve } from 'path';
 
 import I18N from 'i18next';
 
+import { copyJSON } from '@nuogz/utility';
 
-
-const copyJSON = object => JSON.parse(JSON.stringify(object));
 
 
 /**
