@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.2.2 - 2023.01.05 10
+* bump up dependencies regularly
+
+
 ## v1.2.1 - 2022.08.25 19
 * use `copyJSON` from `@nuogz/utility`
 * bump up dependencies
