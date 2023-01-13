@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v1.3.0 - 2023.01.13 16
+* add declaration files
+* change `jsconfig.json`.`moduleResolution` to `NodeNext` from `Node`
+* bump up dependencies
+
+
 ## v1.2.2 - 2023.01.05 10
 * bump up dependencies regularly
 
