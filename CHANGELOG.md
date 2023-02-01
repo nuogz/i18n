@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v1.3.2 - 2023.02.01 11
+* improve jsdoc and `d.ts`
+* bump up dependencies
+
+
 ## v1.3.1 - 2023.01.13 17
 * fix `package.json`
 

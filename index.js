@@ -36,8 +36,23 @@ const initI18N = async (dirLocale, segmentsDirLocale) => {
 	}
 
 
+	/**
+	 * @param {import("i18next").TFunctionKeys} key
+	 * @param {import("i18next").TOptions} options
+	 * @param {string} lng
+	 */
 	const T = (key, options = {}, lng) => i18n.t(key, Object.assign(copyJSON(options), { lng }));
-	const TT = locale => (key, options) => T(key, options, locale);
+	/**
+	 * @param {string} locale
+	 */
+	const TT = locale => {
+		/**
+		 * @param {import("i18next").TFunctionKeys} key
+		 * @param {import("i18next").TOptions} options
+		 */
+		return (key, options) => T(key, options, locale);
+	};
+
 
 	return { T, TT };
 };
