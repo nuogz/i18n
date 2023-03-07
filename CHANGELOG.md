@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## v2.0.0 - 2023.03.07 10
+* refactor: (break) use the new structure of locale files
+* refactor: (break) use 'proto' as default format
+* refactor: (break) load 'hades' formatter by default
+* refactor: use global I18N instance instead of independent instance
+* rename environment variable `NENV_I18N_FORMAT` from `OUTPUT_FORMAT`
+* rename environment variable `NENV_I18N_LOCALE` from `OUTPUT_LOCALE`
+* improve jsdoc and `d.ts`
+
+
 ## v1.3.2 - 2023.02.01 11
 * improve jsdoc and `d.ts`
 * bump up dependencies
