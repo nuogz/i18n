@@ -50,7 +50,7 @@ if(!('NI18N' in globalTop)) {
  * @param {string} dirResource
  * @param {string[]} [locales]
  */
-export async function loadI18NResource(namespace, dirResource, locales = localesDefault) {
+export function loadI18NResource(namespace, dirResource, locales = localesDefault) {
 	/** @type {import('i18next').i18n} */
 	const NI18N = globalTop.NI18N;
 

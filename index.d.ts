@@ -4,7 +4,7 @@
  * @param {string} dirResource
  * @param {string[]} [locales]
  */
-export function loadI18NResource(namespace: string, dirResource: string, locales?: string[]): Promise<void>;
+export function loadI18NResource(namespace: string, dirResource: string, locales?: string[]): void;
 export function T(key: import('i18next').TFuncKey, options: import('i18next').TOptions, lng: string): any;
 /**
  * @param {string} namespace

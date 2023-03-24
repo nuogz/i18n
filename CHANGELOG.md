@@ -1,7 +1,13 @@
 # CHANGELOG
 
+## v2.0.2 - 2023.03.24 16
+* tweak code
+* update description
+
+
 ## v2.0.1 - 2023.03.24 14
 * bump up dependencies
+
 
 ## v2.0.0 - 2023.03.07 10
 * refactor: (break) use the new structure of locale files
