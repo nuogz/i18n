@@ -5,15 +5,15 @@ import { resolve } from 'path';
 
 /**
  * @callback Translator
- * @param {import("i18next").TFuncKey} key
- * @param {import("i18next").TOptions} options
+ * @param {import('i18next').TFuncKey} key
+ * @param {import('i18next').TOptions} options
  * @param {string} lng
  */
 
 /**
  * @callback TranslatorLocale
- * @param {import("i18next").TFuncKey} key
- * @param {import("i18next").TOptions} options
+ * @param {import('i18next').TFuncKey} key
+ * @param {import('i18next').TOptions} options
  */
 
 
@@ -29,7 +29,7 @@ const formatsDefault = (globalTop?.process?.env?.NENV_I18N_FORMAT + ';proto')
 
 
 if(!('NI18N' in globalTop)) {
-	/** @type {import("i18next").i18n} */
+	/** @type {import('i18next').i18n} */
 	const NI18N = globalTop.NI18N = (await import('i18next')).default;
 
 	NI18N.init({
@@ -51,7 +51,7 @@ if(!('NI18N' in globalTop)) {
  * @param {string[]} [locales]
  */
 export async function loadI18NResource(namespace, dirResource, locales = localesDefault) {
-	/** @type {import("i18next").i18n} */
+	/** @type {import('i18next').i18n} */
 	const NI18N = globalTop.NI18N;
 
 

@@ -1,6 +1,6 @@
 {
 	"name": "@nuogz/i18n",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "base I18N library for Nuogz libraries",
 	"author": "Nuogz",
 	"license": "LGPL-3.0-or-later",
@@ -22,10 +22,10 @@
 		"emitDeclaration": "tsc ./index.js --declaration --emitDeclarationOnly --allowJs"
 	},
 	"dependencies": {
-		"i18next": "^22.4.11"
+		"i18next": "^22.4.13"
 	},
 	"devDependencies": {
-		"eslint": "^8.35.0",
+		"eslint": "^8.36.0",
 		"typescript": "^4.9.5"
 	}
 }
