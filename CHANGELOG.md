@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## v2.1.0 - 2023.03.27 11
+* (break) use `@` instead of `_` as a format split in locales files
+* (break) rename formatter `term@hades` from `hadesTerm`
+* (break) rename formatter `value@hades` from `hadesValue`
+* new formatter: `valueType` to create text like `value <typeof value>`
+	* `-` must be put before the key!
+		* `valueType` will return `<` and `>`, which are escaped characters
+		* due to the current flow of `i18next`, we cannot handle `escape` option in formatter
+	* the unescape variant is `valueTypeUnescape`
+	* the Hades variants are `valueType@hades` and `valueTypeUnescape@hades`
+* now any value passed to the `Hades` formatters will be treated as not containing any Hades format
+	* so all `~[]{}` characters contained in the value will be escaped: add `\\` before the character
+* update `t.ds`
+
+
 ## v2.0.2 - 2023.03.24 16
 * tweak code
 * update description

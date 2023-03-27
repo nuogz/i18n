@@ -4,33 +4,43 @@ import { resolve } from 'path';
 
 
 /**
- * @callback Translator
+ * @callback TranslatorWithLocale
  * @param {import('i18next').TFuncKey} key
  * @param {import('i18next').TOptions} options
- * @param {string} lng
+ * @param {string} locale
+ * @returns {string}
  */
 
 /**
- * @callback TranslatorLocale
+ * @callback TranslatorWithGlobalLocale
  * @param {import('i18next').TFuncKey} key
  * @param {import('i18next').TOptions} options
+ * @returns {string}
  */
+
+/** @namespace globalThis */
+/** @type {import('i18next').i18n} */
+globalThis.NI18N;
 
 
 
 // eslint-disable-next-line no-undef
 const globalTop = (globalThis ?? global ?? window);
+if(globalTop === undefined) { throw Error('Could not find global variable'); }
 
 
-const localesDefault = (globalTop?.process?.env?.NENV_I18N_LOCALE + ';en')
+const envTop = globalTop?.process?.env;
+
+const localesDefault = ((envTop?.NENV_I18N_LOCALE ?? '') + ';en')
 	.replace(/(^|;)\s*en\s*(?=;\s*en\s*$)/, '').split(';').filter(s => s.trim()).map(s => s.trim().toLowerCase());
-const formatsDefault = (globalTop?.process?.env?.NENV_I18N_FORMAT + ';proto')
+const formatsDefault = ((envTop?.NENV_I18N_FORMAT ?? '') + ';proto')
 	.replace(/(^|;)\s*proto\s*(?=;\s*proto\s*$)/, '').split(';').filter(s => s.trim()).map(s => s.trim().toLowerCase());
 
 
+
 if(!('NI18N' in globalTop)) {
-	/** @type {import('i18next').i18n} */
 	const NI18N = globalTop.NI18N = (await import('i18next')).default;
+
 
 	NI18N.init({
 		lng: localesDefault[0],
@@ -39,9 +49,18 @@ if(!('NI18N' in globalTop)) {
 	});
 
 
-	NI18N.services.formatter.add('hadesValue', value => `~{${value}}`);
-	NI18N.services.formatter.add('hadesTerm', value => `~[${value}]`);
+	const escapeFromI18Next = NI18N.translator.interpolator.escape;
+	const escapeFromHades = value => value?.toString?.()?.replace?.(/([~{}[\]])/g, '\\$1') ?? value;
+
+	NI18N.services.formatter.add('term@hades', value => `~[${escapeFromHades(value)}]`);
+	NI18N.services.formatter.add('value@hades', value => `~{${escapeFromHades(value)}}`);
+
+	NI18N.services.formatter.add('valueType', value => `${escapeFromI18Next(value)} <${typeof value}>`);
+	NI18N.services.formatter.add('valueTypeUnescape', value => `${value} <${typeof value}>`);
+	NI18N.services.formatter.add('valueType@hades', value => `~{${escapeFromI18Next(escapeFromHades(value))} <${typeof value}>}`);
+	NI18N.services.formatter.add('valueTypeUnescape@hades', value => `~{${escapeFromHades(value)} <${typeof value}>}`);
 }
+
 
 
 /**
@@ -51,9 +70,7 @@ if(!('NI18N' in globalTop)) {
  * @param {string[]} [locales]
  */
 export function loadI18NResource(namespace, dirResource, locales = localesDefault) {
-	/** @type {import('i18next').i18n} */
 	const NI18N = globalTop.NI18N;
-
 
 	locales.map(locale => {
 		try {
@@ -67,20 +84,22 @@ export function loadI18NResource(namespace, dirResource, locales = localesDefaul
 }
 
 
-/** @type {Translator} */
-export function T(key, options = {}, lngs) {
-	return globalTop.NI18N.t(key, Object.assign(JSON.parse(JSON.stringify(options)), { lngs }));
+
+/** @type {TranslatorWithLocale} */
+export function T(key, options = {}, locale) {
+	return globalTop.NI18N.t(key, Object.assign({}, options, { lng: locale }));
 }
+
 
 /**
  * @param {string} namespace
  * @param {string[]} [locales]
  * @param {string[]} [formats]
- * @returns {TranslatorLocale}
+ * @returns {TranslatorWithGlobalLocale}
  */
 export function TT(namespace, locales, formats = formatsDefault) {
 	return (key, options) => T(
-		formats.map(format => `${namespace}:${key}_${format}`),
+		formats.map(format => `${namespace}:${key}@${format}`),
 		options,
 		locales,
 	);
