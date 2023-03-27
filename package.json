@@ -1,6 +1,6 @@
 {
 	"name": "@nuogz/i18n",
-	"version": "2.1.0",
+	"version": "3.0.0",
 	"description": "base internationalization library based on i18next for Nuogz libraries",
 	"author": "Nuogz",
 	"license": "LGPL-3.0-or-later",

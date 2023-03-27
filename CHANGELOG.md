@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v3.0.0 - 2023.03.27 14
+* bump up version to `v3.x`
+
+
 ## v2.1.0 - 2023.03.27 11
 * (break) use `@` instead of `_` as a format split in locales files
 * (break) rename formatter `term@hades` from `hadesTerm`
