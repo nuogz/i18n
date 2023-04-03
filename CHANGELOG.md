@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v3.0.1 - 2023.04.03 15
+* bump up dependencies
+* update npmrc
+
+
 ## v3.0.0 - 2023.03.27 14
 * bump up version to `v3.x`
 
