@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v3.1.0 - 2023.04.03 16
+* new `T` funciton optional argument `scope` for better ouput
+	* will return `${scope} --> ${result}` if `scope` is set
+
+
 ## v3.0.1 - 2023.04.03 15
 * bump up dependencies
 * update npmrc

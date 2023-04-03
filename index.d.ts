@@ -5,7 +5,7 @@
  * @param {string[]} [locales]
  */
 export function loadI18NResource(namespace: string, dirResource: string, locales?: string[]): void;
-export function T(key: import('i18next').TFuncKey, options: import('i18next').TOptions, locale: string): string;
+export function T(key: import('i18next').TFuncKey, options: import('i18next').TOptions, locale: string, scope?: string): string;
 /**
  * @param {string} namespace
  * @param {string[]} [locales]
@@ -13,5 +13,5 @@ export function T(key: import('i18next').TFuncKey, options: import('i18next').TO
  * @returns {TranslatorWithGlobalLocale}
  */
 export function TT(namespace: string, locales?: string[], formats?: string[]): TranslatorWithGlobalLocale;
-export type TranslatorWithLocale = (key: import('i18next').TFuncKey, options: import('i18next').TOptions, locale: string) => string;
-export type TranslatorWithGlobalLocale = (key: import('i18next').TFuncKey, options: import('i18next').TOptions) => string;
+export type TranslatorWithLocale = (key: import('i18next').TFuncKey, options: import('i18next').TOptions, locale: string, scope?: string) => string;
+export type TranslatorWithGlobalLocale = (key: import('i18next').TFuncKey, options: import('i18next').TOptions, scope?: string) => string;

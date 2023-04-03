@@ -8,6 +8,7 @@ import { resolve } from 'path';
  * @param {import('i18next').TFuncKey} key
  * @param {import('i18next').TOptions} options
  * @param {string} locale
+ * @param {string} [scope='']
  * @returns {string}
  */
 
@@ -15,6 +16,7 @@ import { resolve } from 'path';
  * @callback TranslatorWithGlobalLocale
  * @param {import('i18next').TFuncKey} key
  * @param {import('i18next').TOptions} options
+ * @param {string} [scope='']
  * @returns {string}
  */
 
@@ -86,8 +88,10 @@ export function loadI18NResource(namespace, dirResource, locales = localesDefaul
 
 
 /** @type {TranslatorWithLocale} */
-export function T(key, options = {}, locale) {
-	return globalTop.NI18N.t(key, Object.assign({}, options, { lng: locale }));
+export function T(key, options = {}, locale, scope = '') {
+	const result = globalTop.NI18N.t(key, Object.assign({}, options, { lng: locale }));
+
+	return scope ? `${scope} --> ${result}` : result;
 }
 
 
@@ -98,9 +102,10 @@ export function T(key, options = {}, locale) {
  * @returns {TranslatorWithGlobalLocale}
  */
 export function TT(namespace, locales, formats = formatsDefault) {
-	return (key, options) => T(
+	return (key, options, scope = '') => T(
 		formats.map(format => `${namespace}:${key}@${format}`),
 		options,
 		locales,
+		scope,
 	);
 }
