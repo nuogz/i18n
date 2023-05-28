@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## v3.2.0 - 2023.05.26 19
+* add browser entry and add related codes
+* bump up dependencies
+* use eslint flat config `eslint.config.js` instead `eslintrc.cjs`, and related change
+* update `typescript` to `v5.x`, and renew jsdoc
+
+
 ## v3.1.0 - 2023.04.03 16
 * new `T` funciton optional argument `scope` for better ouput
 	* will return `${scope} --> ${result}` if `scope` is set

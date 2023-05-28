@@ -1,17 +1,14 @@
 /**
- *
  * @param {string} namespace
  * @param {string} dirResource
  * @param {string[]} [locales]
  */
 export function loadI18NResource(namespace: string, dirResource: string, locales?: string[]): void;
-export function T(key: import('i18next').TFuncKey, options: import('i18next').TOptions, locale: string, scope?: string): string;
+export function T(key: string, options: import("i18next").TOptions<import("i18next").StringMap>, locale: string, scope?: string): string;
 /**
  * @param {string} namespace
  * @param {string[]} [locales]
  * @param {string[]} [formats]
- * @returns {TranslatorWithGlobalLocale}
+ * @returns {import('./lib/declaration.js').TranslatorWithGlobalLocale}
  */
-export function TT(namespace: string, locales?: string[], formats?: string[]): TranslatorWithGlobalLocale;
-export type TranslatorWithLocale = (key: import('i18next').TFuncKey, options: import('i18next').TOptions, locale: string, scope?: string) => string;
-export type TranslatorWithGlobalLocale = (key: import('i18next').TFuncKey, options: import('i18next').TOptions, scope?: string) => string;
+export function TT(namespace: string, locales?: string[], formats?: string[]): import('./lib/declaration.js').TranslatorWithGlobalLocale;

@@ -1,6 +1,6 @@
 {
 	"name": "@nuogz/i18n",
-	"version": "3.1.0",
+	"version": "3.2.0",
 	"description": "base internationalization library based on i18next for Nuogz libraries",
 	"author": "Nuogz",
 	"license": "LGPL-3.0-or-later",
@@ -9,24 +9,31 @@
 		"url": "github:nuogz/i18n"
 	},
 	"type": "module",
-	"typesSource": [],
+	"typesSource": [
+		"node",
+		"browser"
+	],
 	"engines": {
 		"node": ">=14.18.1"
 	},
-	"sideEffects": true,
+	"sideEffects": false,
 	"main": "./index.js",
+	"browser": {
+		"./index.js": "./src/index.js"
+	},
 	"files": [
 		"index.js",
 		"**/*.d.ts"
 	],
 	"scripts": {
-		"emitDeclaration": "tsc ./index.js --declaration --emitDeclarationOnly --allowJs"
+		"emitNodeDeclaration": "tsc ./index.js --declaration --emitDeclarationOnly --allowJs --moduleResolution nodenext --module esnext --target esnext --experimentalDecorators",
+		"emitBrowserDeclaration": "tsc ./src/index.js --declaration --emitDeclarationOnly --allowJs --moduleResolution nodenext --module esnext --target esnext --experimentalDecorators"
 	},
 	"dependencies": {
-		"i18next": "^22.4.14"
+		"i18next": "^22.5.0"
 	},
 	"devDependencies": {
-		"eslint": "^8.37.0",
-		"typescript": "^4.9.5"
+		"eslint": "^8.41.0",
+		"typescript": "^5.0.4"
 	}
 }

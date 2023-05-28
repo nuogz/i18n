@@ -1,13 +1,8 @@
-import { readFileSync } from 'fs';
-import { resolve } from 'path';
-
-
-
-const globalTop = global;
+const globalTop = window;
 if(globalTop === undefined) { throw Error('Could not find global variable'); }
 
 
-const envTop = globalTop?.process?.env;
+const envTop = globalTop;
 
 const localesDefault = ((envTop?.NENV_I18N_LOCALE ?? '') + ';en')
 	.replace(/(^|;)\s*en\s*(?=;\s*en\s*$)/, '').split(';').filter(s => s.trim()).map(s => s.trim().toLowerCase());
@@ -43,15 +38,15 @@ if(!('NI18N' in globalTop)) {
 
 /**
  * @param {string} namespace
- * @param {string} dirResource
+ * @param {Object<string, Object>} textsLocale
  * @param {string[]} [locales]
  */
-export function loadI18NResource(namespace, dirResource, locales = localesDefault) {
+export function loadI18NResource(namespace, textsLocale, locales = localesDefault) {
 	const NI18N = globalTop.NI18N;
 
 	locales.map(locale => {
 		try {
-			const resource = JSON.parse(readFileSync(resolve(dirResource, `${locale}.json`), 'utf-8'));
+			const resource = textsLocale[locale];
 
 			NI18N.addResourceBundle(locale, namespace, resource, true, true);
 		}
@@ -61,7 +56,7 @@ export function loadI18NResource(namespace, dirResource, locales = localesDefaul
 
 
 
-/** @type {import('./lib/declaration.js').TranslatorWithLocale} */
+/** @type {import('../lib/declaration.js').TranslatorWithLocale} */
 export function T(key, options = {}, locale, scope = '') {
 	const result = globalTop.NI18N.t(key, Object.assign({}, options, { lng: locale }));
 
@@ -73,7 +68,7 @@ export function T(key, options = {}, locale, scope = '') {
  * @param {string} namespace
  * @param {string[]} [locales]
  * @param {string[]} [formats]
- * @returns {import('./lib/declaration.js').TranslatorWithGlobalLocale}
+ * @returns {import('../lib/declaration.js').TranslatorWithGlobalLocale}
  */
 export function TT(namespace, locales, formats = formatsDefault) {
 	return (key, options, scope = '') => T(
