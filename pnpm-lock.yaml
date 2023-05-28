@@ -1,4 +1,8 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
 
 dependencies:
   i18next:
@@ -6,6 +10,9 @@ dependencies:
     version: 22.5.0
 
 devDependencies:
+  '@types/node':
+    specifier: ^20.2.5
+    version: 20.2.5
   eslint:
     specifier: ^8.41.0
     version: 8.41.0
@@ -98,6 +105,10 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
+    dev: true
+
+  /@types/node@20.2.5:
+    resolution: {integrity: sha512-JJulVEQXmiY9Px5axXHeYGLSjhkZEnD+MDPDGbCbIAbMslkKwmygtZFy1X6s/075Yo94sf8GuSlFfPzysQrWZQ==}
     dev: true
 
   /acorn-jsx@5.3.2(acorn@8.8.2):

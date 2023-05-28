@@ -1,10 +1,15 @@
 # CHANGELOG
 
+## v3.2.1 - 2023.05.28 23
+* improve code struct
+
+
 ## v3.2.0 - 2023.05.26 19
-* add browser entry and add related codes
+* update code to properly support browser build
 * bump up dependencies
-* use eslint flat config `eslint.config.js` instead `eslintrc.cjs`, and related change
-* update `typescript` to `v5.x`, and renew jsdoc
+	* update `typescript` to `v5.x`, and renew jsdoc
+* use eslint flat config, and related config udpate
+	* use `eslint.config.js` instead `eslintrc.cjs`
 
 
 ## v3.1.0 - 2023.04.03 16
