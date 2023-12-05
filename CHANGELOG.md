@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v3.3.0 - 2023.12.05 16
+* bump up `i18next` to `v23.x` from `v22.x`
+* tweak some enviroment
+* bump up dependencies
+
+
 ## v3.2.1 - 2023.05.28 23
 * improve code struct
 

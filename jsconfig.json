@@ -1,11 +1,17 @@
 {
 	"compilerOptions": {
-		"module": "ESNext",
-		"moduleResolution": "NodeNext",
-		"target": "ESNext",
+		"module": "nodenext",
+		"moduleResolution": "nodenext",
+		"target": "esnext",
 		"experimentalDecorators": true,
-		"strict": true
+		"strict": true,
+		"allowJs": true,
+		"jsx": "preserve"
 	},
+	"include": [
+		"index.js",
+		"src/**/*.js"
+	],
 	"exclude": [
 		"node_modules"
 	]
