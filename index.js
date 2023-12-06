@@ -5,7 +5,7 @@ import { loadI18NResource } from './src/load-i18n-resource.lib.js';
 
 /**
  * @callback TranslatorWithLocale
- * @param {import('i18next').TFuncKey} key
+ * @param {string | ReadonlyArray<string> | (string | ReadonlyArray<string>)[]} key
  * @param {import('i18next').TOptions} options
  * @param {string} locale
  * @param {string} [scope='']
@@ -14,7 +14,7 @@ import { loadI18NResource } from './src/load-i18n-resource.lib.js';
 
 /**
  * @callback TranslatorWithGlobalLocale
- * @param {import('i18next').TFuncKey} key
+ * @param {string | ReadonlyArray<string> | (string | ReadonlyArray<string>)[]} key
  * @param {import('i18next').TOptions} options
  * @param {string} [scope='']
  * @returns {string}

@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
-		"module": "nodenext",
-		"moduleResolution": "nodenext",
+		"moduleResolution": "bundler",
+		"module": "esnext",
 		"target": "esnext",
 		"experimentalDecorators": true,
 		"strict": true,
@@ -9,8 +9,7 @@
 		"jsx": "preserve"
 	},
 	"include": [
-		"index.js",
-		"src/**/*.js"
+		"**/*.js"
 	],
 	"exclude": [
 		"node_modules"

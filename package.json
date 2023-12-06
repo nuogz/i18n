@@ -1,6 +1,6 @@
 {
 	"name": "@nuogz/i18n",
-	"version": "3.3.0",
+	"version": "3.3.1",
 	"description": "Base internationalization library based on i18next for Nuogz libraries",
 	"author": "DanoR",
 	"license": "LGPL-3.0-or-later",
@@ -8,12 +8,12 @@
 		"type": "git",
 		"url": "github:nuogz/i18n"
 	},
+	"private": false,
 	"type": "module",
 	"typesSource": [
 		"node",
 		"browser"
 	],
-	"typings": "./index.d.ts",
 	"sideEffects": false,
 	"engines": {
 		"node": ">=14.18.1"
@@ -27,8 +27,9 @@
 		"src/**",
 		"**/*.d.ts"
 	],
+	"typings": "./index.d.ts",
 	"scripts": {
-		"emitDeclaration": "tsc ./index.js --declaration --emitDeclarationOnly --module nodenext --moduleResolution nodenext --target esnext --experimentalDecorators --allowJs "
+		"emitDeclaration": "tsc ./index.js --declaration --emitDeclarationOnly --moduleResolution bundler --module esnext --target esnext --experimentalDecorators --strict --allowJs --jsx preserve"
 	},
 	"dependencies": {
 		"i18next": "^23.7.7"

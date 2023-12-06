@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v3.3.1 - 2023.12.06 11
+* fix `d.ts`
+* align gaia enviroment
+
+
 ## v3.3.0 - 2023.12.05 16
 * bump up `i18next` to `v23.x` from `v22.x`
 * tweak some enviroment
