@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v3.4.0 - 2024.07.13 15
+* feat: Translator Key support fallback to non-format
+* build: bump up dependencies
+* chore: improve develop environments
+
+
 ## v3.3.1 - 2023.12.06 11
 * fix `d.ts`
 * align gaia enviroment

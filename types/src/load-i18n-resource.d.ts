@@ -4,5 +4,8 @@
  * @param {string[]} [locales]
  */
 export function loadI18NResource(namespace: string, textsLocale: {
-    [x: string]: any;
-}, locales?: string[]): void;
+    [x: string]: Object;
+}, locales?: string[] | undefined): {
+    locale: string;
+    error: unknown;
+}[];

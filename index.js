@@ -3,27 +3,12 @@ import { loadI18NResource } from './src/load-i18n-resource.lib.js';
 
 
 
-/**
- * @callback TranslatorWithLocale
- * @param {string | ReadonlyArray<string> | (string | ReadonlyArray<string>)[]} key
- * @param {import('i18next').TOptions} options
- * @param {string} locale
- * @param {string} [scope='']
- * @returns {string}
- */
-
-/**
- * @callback TranslatorWithGlobalLocale
- * @param {string | ReadonlyArray<string> | (string | ReadonlyArray<string>)[]} key
- * @param {import('i18next').TOptions} options
- * @param {string} [scope='']
- * @returns {string}
- */
+/** @typedef {import('./bases.d.ts').TranslatorWithLocale} TranslatorWithLocale */
+/** @typedef {import('./bases.d.ts').TranslatorWithGlobalLocale} TranslatorWithGlobalLocale */
 
 
 if(!('NI18N' in globalTop)) {
 	const NI18N = globalTop.NI18N = (await import('i18next')).default;
-
 
 	NI18N.init({
 		lng: localesDefault[0],
@@ -52,7 +37,10 @@ export { loadI18NResource };
 
 /** @type {TranslatorWithLocale} */
 export function T(key, options = {}, locale, scope = '') {
-	const result = globalTop.NI18N.t(key, Object.assign({}, options, { lng: locale }));
+	/** @type {import('i18next').default} */
+	const NI18N = globalTop.NI18N;
+
+	const result = NI18N.t(key, Object.assign({}, options, { lng: locale }));
 
 	return scope ? `${scope} --> ${result}` : result;
 }
@@ -66,7 +54,7 @@ export function T(key, options = {}, locale, scope = '') {
  */
 export function TT(namespace, locales, formats = formatsDefault) {
 	return (key, options, scope = '') => T(
-		formats.map(format => `${namespace}:${key}@${format}`),
+		[...formats.map(format => `${namespace}:${key}@${format}`), `${namespace}:${key}`],
 		options,
 		locales,
 		scope,
