@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v3.6.0 - 2024.07.16 17
+* refactor!: Use environment variable `NEVN_I18N` instead of `NENV_I18N_LOCALE` and `NENV_I18N_FORMAT`.
+	* `NEVN_I18N` is a URL query string.
+
+
 ## v3.5.0 - 2024.07.16 11
 * refactor!: Remove all preset Hades formatters. Hades formatters will now be added by `Hades`
 * build: Bump up dependencies
