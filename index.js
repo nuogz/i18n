@@ -15,18 +15,6 @@ if(!('NI18N' in globalTop)) {
 		fallbackLng: localesDefault,
 		resources: {},
 	});
-
-
-	const escapeFromI18Next = NI18N.translator.interpolator.escape;
-	const escapeFromHades = value => value?.toString?.()?.replace?.(/([~{}[\]])/g, '\\$1') ?? value;
-
-	NI18N.services.formatter.add('term@hades', value => `~[${escapeFromHades(value)}]`);
-	NI18N.services.formatter.add('value@hades', value => `~{${escapeFromHades(value)}}`);
-
-	NI18N.services.formatter.add('valueType', value => `${escapeFromI18Next(value)} <${typeof value}>`);
-	NI18N.services.formatter.add('valueTypeUnescape', value => `${value} <${typeof value}>`);
-	NI18N.services.formatter.add('valueType@hades', value => `~{${escapeFromI18Next(escapeFromHades(value))} <${typeof value}>}`);
-	NI18N.services.formatter.add('valueTypeUnescape@hades', value => `~{${escapeFromHades(value)} <${typeof value}>}`);
 }
 
 

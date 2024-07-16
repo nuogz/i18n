@@ -1,9 +1,14 @@
 # CHANGELOG
 
+## v3.5.0 - 2024.07.16 11
+* refactor!: Remove all preset Hades formatters. Hades formatters will now be added by `Hades`
+* build: Bump up dependencies
+
+
 ## v3.4.0 - 2024.07.13 15
-* feat: Translator Key support fallback to non-format
-* build: bump up dependencies
-* chore: improve develop environments
+* feat: Translator Key will fallback to non-format now
+* build: Bump up dependencies
+* chore: Improve develop environments
 
 
 ## v3.3.1 - 2023.12.06 11
