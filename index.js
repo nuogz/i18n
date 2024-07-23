@@ -44,7 +44,10 @@ export function T(key, options = {}, locale, scope = '') {
 export function TT(namespace, locales, formats = formatsDefault) {
 	return {
 		T: (key, options, scope = '') => T(
-			[...formats.map(format => `${namespace}:${key}@${format}`), `${namespace}:${key}`],
+			[
+				...formats.map(format => `${namespace}:${key}@${format}`),
+				`${namespace}:${key}`
+			],
 			options,
 			locales,
 			scope,
@@ -53,15 +56,26 @@ export function TT(namespace, locales, formats = formatsDefault) {
 			const optionsBase = typeof outputs[0] == 'object' ? outputs.shift() : {};
 
 
-			const [scopeFinal, keyWhat = 'do'] = scope.split(':');
-			if(keyWhat != '-') { outputs.unshift(keyWhat); }
+			const paramsScope = (scope ?? '').split(':');
+			const [scopeFinal, keyWhat] = paramsScope;
+			if(scopeFinal) {
+				if(keyWhat === undefined) { outputs.unshift('what'); }
+				else if(keyWhat !== '') { outputs.unshift(keyWhat); }
+			}
 
 
 			return outputs.map(/** @param {string|[key: string, options: Object]} output */(output) => {
 				const key = typeof output == 'string' ? output : output[0];
 				const options = typeof output == 'string' ? {} : output[1];
 
-				return T(`${scopeFinal}:${key}`, Object.assign({}, optionsBase, options));
+				return T(
+					[
+						...formats.map(format => `${namespace}:${scopeFinal ? `${scopeFinal}:` : ''}${key}@${format}`),
+						`${namespace}:${scopeFinal ? `${scopeFinal}:` : ''}${key}`
+					],
+					Object.assign({}, optionsBase, options),
+					locales
+				);
 			});
 		}
 	};

@@ -1,7 +1,13 @@
 # CHANGELOG
 
+## v3.7.1 - 2024.07.23 19
+* fix: Fix the problem that `NamespacelizedLocalizedSequenceTranslator` could not match locales correctly
+* feat!: improve functionality of the `NamespacelizedLocalizedSequenceTranslator`.`scope` parameter
+* docs: update jsdoc about `NamespacelizedLocalizedSequenceTranslator`.`scope` parameter
+
+
 ## v3.7.0 - 2024.07.23 17
-* feat!: new Translator: `NamespacelizedLocalizedSequenceTranslator`, exported as `TS` from function `TT`
+* feat!: new Translator `NamespacelizedLocalizedSequenceTranslator`, exported as `TS` from function `TT`
 	* BREAKING CHANGE: exported function `TT` now returns an object containing both function `T` and `TS`, instead of returning `T` directly
 * docs: rename type `TranslatorWithLocale` to `LocalizedTranslator`
 * docs: rename type `TranslatorWithGlobalLocale` to `NamespacelizedLocalizedTranslator`

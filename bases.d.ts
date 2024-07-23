@@ -14,6 +14,16 @@ export type NamespacelizedLocalizedTranslator = (
 ) => string;
 
 export type NamespacelizedLocalizedSequenceTranslator = {
+	/**
+	 * - if `scope` is not empty, the translation of `scope:what` will be unshifted into the return translations;
+	 *   - default `what` can be specified by passing `scope:anotherKey`
+	 * - if `scope` is empty or `scope:` is passed, the translation of `scope:what` will not be unshifted
+	 */
 	(scope: string, ...outputs: ([key: string, option: Object] | string)[]): string[];
+	/**
+	 * - if `scope` is not empty, the translation of `scope:what` will be unshifted into the return translations;
+	 *   - default `what` can be specified by passing `scope:anotherKey`
+	 * - if `scope` is empty or `scope:` is passed, the translation of `scope:what` will not be unshifted
+	 */
 	(scope: string, optionsBase: object, ...outputs: ([key: string, option: Object] | string)[]): string[];
 }
