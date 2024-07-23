@@ -1,19 +1,27 @@
 # CHANGELOG
 
+## v3.7.0 - 2024.07.23 17
+* feat!: new Translator: `NamespacelizedLocalizedSequenceTranslator`, exported as `TS` from function `TT`
+	* BREAKING CHANGE: exported function `TT` now returns an object containing both function `T` and `TS`, instead of returning `T` directly
+* docs: rename type `TranslatorWithLocale` to `LocalizedTranslator`
+* docs: rename type `TranslatorWithGlobalLocale` to `NamespacelizedLocalizedTranslator`
+* deps: bump up dependencies
+
+
 ## v3.6.0 - 2024.07.16 17
-* refactor!: Use environment variable `NEVN_I18N` instead of `NENV_I18N_LOCALE` and `NENV_I18N_FORMAT`.
+* refactor!: use environment variable `NEVN_I18N` instead of `NENV_I18N_LOCALE` and `NENV_I18N_FORMAT`.
 	* `NEVN_I18N` is a URL query string.
 
 
 ## v3.5.0 - 2024.07.16 11
-* refactor!: Remove all preset Hades formatters. Hades formatters will now be added by `Hades`
-* build: Bump up dependencies
+* refactor!: remove all preset Hades formatters. Hades formatters will now be added by `Hades`
+* deps: bump up dependencies
 
 
 ## v3.4.0 - 2024.07.13 15
-* feat: Translator Key will fallback to non-format now
-* build: Bump up dependencies
-* chore: Improve develop environments
+* feat: translator Key will fallback to non-format now
+* deps: bump up dependencies
+* chore: improve develop environments
 
 
 ## v3.3.1 - 2023.12.06 11

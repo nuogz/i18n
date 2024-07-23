@@ -1,6 +1,6 @@
 {
 	"name": "@nuogz/i18n",
-	"version": "3.6.0",
+	"version": "3.7.0",
 	"description": "Base internationalization library based on i18next for Nuogz libraries",
 	"author": "DanoR",
 	"license": "LGPL-3.0-or-later",
@@ -34,14 +34,14 @@
 		"postdeclare": "copy /Y bases.d.ts types"
 	},
 	"dependencies": {
-		"i18next": "^23.12.1"
+		"i18next": "^23.12.2"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.7.0",
 		"@stylistic/eslint-plugin-js": "^2.3.0",
-		"@types/node": "^20.14.10",
+		"@types/node": "^20.14.11",
 		"eslint": "^9.7.0",
 		"globals": "^15.8.0",
-		"typescript": "^5.5.3"
+		"typescript": "^5.5.4"
 	}
 }
