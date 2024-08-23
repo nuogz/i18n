@@ -26,6 +26,8 @@ if(!('NI18N' in globalTop)) {
 			resources: {},
 		});
 	});
+
+	await globalTop.promiseImportingNI18N;
 }
 
 

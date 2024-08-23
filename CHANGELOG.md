@@ -1,7 +1,11 @@
 # CHANGELOG
 
-## v3.7.3 - 2024.08.23 08
-* feat: improve the logic for asynchronously loading i18next so that it always uses a unique NI18N when multiple versions are loaded asynchronously at the same time
+## v3.7.4 - 2024.08.23 11
+* fix: the bug of the logic for asynchronously importing `i18next`
+
+
+## v3.7.3 - 2024.08.23 11
+* feat: improve the logic for asynchronously importing `i18next` so that it always uses a unique NI18N when multiple versions are imported asynchronously at the same time
 
 
 ## v3.7.2 - 2024.08.23 08
