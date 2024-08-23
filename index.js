@@ -10,13 +10,21 @@ import { loadI18NResource } from './src/load-i18n-resource.lib.js';
 
 
 
-if(!('NI18N' in globalTop)) {
-	const NI18N = globalTop.NI18N = (await import('i18next')).default;
+if(globalTop.promiseImportingNI18N instanceof Promise) {
+	await globalTop.promiseImportingNI18N;
+}
 
-	NI18N.init({
-		lng: localesDefault[0],
-		fallbackLng: localesDefault,
-		resources: {},
+if(!('NI18N' in globalTop)) {
+	globalTop.promiseImportingNI18N = import('i18next').then(({ default: NI18N }) => {
+		delete globalTop.promiseImportingNI18N;
+
+		globalTop.NI18N = NI18N;
+
+		NI18N.init({
+			lng: localesDefault[0],
+			fallbackLng: localesDefault,
+			resources: {},
+		});
 	});
 }
 
