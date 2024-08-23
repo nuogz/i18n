@@ -20,8 +20,8 @@
 
 
 ## v3.6.0 - 2024.07.16 17
-* refactor!: use environment variable `NEVN_I18N` instead of `NENV_I18N_LOCALE` and `NENV_I18N_FORMAT`.
-	* `NEVN_I18N` is a URL query string.
+* refactor!: use environment variable `NENV_I18N` instead of `NENV_I18N_LOCALE` and `NENV_I18N_FORMAT`.
+	* `NENV_I18N` is a URL query string.
 
 
 ## v3.5.0 - 2024.07.16 11
