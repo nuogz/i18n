@@ -13,17 +13,21 @@ export type NamespacelizedLocalizedTranslator = (
 	scope?: string
 ) => string;
 
+
+export type NamespacelizedLocalizedSequenceTranslatorA = (scope: string, ...outputs: ([key: string, option: Object] | string)[]) => string[];
+export type NamespacelizedLocalizedSequenceTranslatorB = (scope: string, optionsBase: object, ...outputs: ([key: string, option: Object] | string)[]) => string[];
+
 export type NamespacelizedLocalizedSequenceTranslator = {
 	/**
-	 * - if `scope` is not empty, the translation of `scope:what` will be unshifted into the return translations;
-	 *   - default `what` can be specified by passing `scope:anotherKey`
-	 * - if `scope` is empty or `scope:` is passed, the translation of `scope:what` will not be unshifted
+	 * - if `scope` is not empty, the translation of `scope.what` will be unshifted into the return translations;
+	 *   - default `what` can be specified by passing `scope.anotherKey`
+	 * - if `scope` is empty or `scope.` is passed, the translation of `scope.what` will not be unshifted
 	 */
-	(scope: string, ...outputs: ([key: string, option: Object] | string)[]): string[];
+	(...args: Parameters<NamespacelizedLocalizedSequenceTranslatorA>): ReturnType<NamespacelizedLocalizedSequenceTranslatorA>;
 	/**
-	 * - if `scope` is not empty, the translation of `scope:what` will be unshifted into the return translations;
-	 *   - default `what` can be specified by passing `scope:anotherKey`
-	 * - if `scope` is empty or `scope:` is passed, the translation of `scope:what` will not be unshifted
+	 * - if `scope` is not empty, the translation of `scope.what` will be unshifted into the return translations;
+	 *   - default `what` can be specified by passing `scope.anotherKey`
+	 * - if `scope` is empty or `scope.` is passed, the translation of `scope.what` will not be unshifted
 	 */
-	(scope: string, optionsBase: object, ...outputs: ([key: string, option: Object] | string)[]): string[];
+	(...args: Parameters<NamespacelizedLocalizedSequenceTranslatorB>): ReturnType<NamespacelizedLocalizedSequenceTranslatorB>;
 }

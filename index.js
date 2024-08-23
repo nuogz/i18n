@@ -2,10 +2,12 @@ import { formatsDefault, globalTop, localesDefault } from './src/global.pure.js'
 import { loadI18NResource } from './src/load-i18n-resource.lib.js';
 
 
-
 /** @typedef {import('./bases.d.ts').LocalizedTranslator} LocalizedTranslator */
 /** @typedef {import('./bases.d.ts').NamespacelizedLocalizedTranslator} NamespacelizedLocalizedTranslator */
 /** @typedef {import('./bases.d.ts').NamespacelizedLocalizedSequenceTranslator} NamespacelizedLocalizedSequenceTranslator */
+/** @typedef {import('./bases.d.ts').NamespacelizedLocalizedSequenceTranslatorA} NamespacelizedLocalizedSequenceTranslatorA */
+/** @typedef {import('./bases.d.ts').NamespacelizedLocalizedSequenceTranslatorB} NamespacelizedLocalizedSequenceTranslatorB */
+
 
 
 if(!('NI18N' in globalTop)) {
@@ -56,7 +58,7 @@ export function TT(namespace, locales, formats = formatsDefault) {
 			const optionsBase = typeof outputs[0] == 'object' ? outputs.shift() : {};
 
 
-			const paramsScope = (scope ?? '').split(':');
+			const paramsScope = (scope ?? '').split('.');
 			const [scopeFinal, keyWhat] = paramsScope;
 			if(scopeFinal) {
 				if(keyWhat === undefined) { outputs.unshift('what'); }
@@ -71,7 +73,8 @@ export function TT(namespace, locales, formats = formatsDefault) {
 				return T(
 					[
 						...formats.map(format => `${namespace}:${scopeFinal ? `${scopeFinal}:` : ''}${key}@${format}`),
-						`${namespace}:${scopeFinal ? `${scopeFinal}:` : ''}${key}`
+						`${namespace}:${scopeFinal ? `${scopeFinal}:` : ''}${key}`,
+						key
 					],
 					Object.assign({}, optionsBase, options),
 					locales

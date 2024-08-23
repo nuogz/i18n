@@ -1,7 +1,12 @@
 # CHANGELOG
 
+## v3.7.2 - 2024.08.23 08
+* docs: improve the docs about `NamespacelizedLocalizedSequenceTranslatorA`
+* deps: bump up dependencies
+
+
 ## v3.7.1 - 2024.07.23 19
-* fix: Fix the problem that `NamespacelizedLocalizedSequenceTranslator` could not match locales correctly
+* fix: fix the problem that `NamespacelizedLocalizedSequenceTranslator` could not match locales correctly
 * feat!: improve functionality of the `NamespacelizedLocalizedSequenceTranslator`.`scope` parameter
 * docs: update jsdoc about `NamespacelizedLocalizedSequenceTranslator`.`scope` parameter
 
